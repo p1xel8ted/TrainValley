@@ -33,17 +33,25 @@ namespace TrainValleyOne
             {
                 rightBar.SetActive(false);
             }
-            
+
             var leftToolbar = GameObject.Find("UI Root/Toolbar/Left");
-            if(leftToolbar!=null)
+            if (leftToolbar != null)
             {
                 leftToolbar.transform.position = new Vector3(0, Display.main.systemHeight, 0);
             }
-            
+
             var rightToolbar = GameObject.Find("UI Root/Toolbar/Right");
-            if(rightToolbar!=null)
+            if (rightToolbar != null)
             {
                 rightToolbar.transform.position = new Vector3(Display.main.systemWidth, Display.main.systemHeight, 0);
+            }
+
+            var gauge = GameObject.Find("UI Root/Gauge/pcGauge");
+            if (gauge != null)
+            {
+                var position = gauge.transform.position;
+                position = new Vector3(Display.main.systemWidth - 50, position.y, position.z);
+                gauge.transform.position = position;
             }
         }
     }
